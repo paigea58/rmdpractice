@@ -1,0 +1,194 @@
+---
+title: 'Eating in Naples: A Neopolitan Pizza Review'
+author: "Paige Gonzales"
+output:
+  pdf_document:
+    toc: yes
+    toc_depth: '4'
+    extra_dependencies: ["float"]
+    latex_engine: pdflatex
+  html_document:
+    toc: yes
+    toc_depth: 4
+bibliography: references.bib
+csl: apa.csl
+link-citations: yes
+linkcolor: blue
+header-includes:
+  \usepackage{float}
+  \floatplacement{figure}{H}
+  \usepackage{hyperref}
+  \hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue}
+---
+
+```{r setup, include=TRUE, echo=FALSE, warning = FALSE, message = FALSE}
+
+knitr::opts_chunk$set(echo = FALSE, fig.pos = "H", out.extra = "")
+
+library(dplyr)
+library(kableExtra)
+library(vistime)
+library(ggplot2)
+
+```
+\newpage
+
+# A Journey to Naples
+
+From May 31^st^ to June 4^th^ of 2023, my fiance, Chris, and I visited Naples, Italy with the sole purpose of eating as much Neapolitan pizza as we possibly could in four days. This trip had been a longtime dream for the both of us, so we were excited to finally make it happen. The planning for this trip was extensive. We spent hours researching top pizzerias, organizing our schedule to include nearby pizzerias into our daytime plans, and navigating a chaotic city that we had never visited before. It was an exciting, and sometimes overwhelming, task that overall ended up being a success. In this reflection, I will take a look at our initial plans, what went right, what went wrong, and most importantly, how great the pizza tasted!
+
+## What Exactly IS Neopolitan Pizza?
+
+There are very strict guidelines to what the government of Italy considers a Neapolitan pizza. In fact, the *Associazione Verace Pizza Napoletana* (AVPN) is an entire organization committed to maintaining these strict regulations.
+
+Some regulations include [@AVPN]:
+
+- The pizza must have a max diameter of 35cm.
+- The crust must be formed by hand, not a rolling pin.
+- The pizza must be cooked in a wood fired oven.
+
+These are just scratching the surface of a pages long guidebook that can be found on the official AVPN website [here](https://www.pizzanapoletana.org/public/pdf/Disciplinare_AVPN_2022_en.pdf).
+
+![Neopolitan Pizza](pizza.jpeg){width=50%}
+
+## Why Are We Doing This, Again?
+
+Chris has practiced making homemade Neapolitan pizza for several years, with a personal goal to achieve the *perfect* pizza. I am usually the taste tester. Making an authentic Neapolitan pizza at home is challenging, with one major hurdle being the requirement of a wood fired oven. Chris purchased a wood fired oven a few years ago, and has since worked diligently to make the most ideal crust, topped with flavorful fresh basil, mozzarella, and San Marzano tomatoes. It can be difficult to find quality ingredients in Houston, despite it being a diverse metropolitan city. The selection of these items requires a lot of trial and error, and there have been times in the past that the pizzas turn out to be total disasters. 
+
+Despite the obstacles presented, Chris' practice has led to perfectly cooked pizzas, and our friends and family are always impressed by his skill. However, we were both curious what a **real** Neapolitan pizza straight from the birthplace of pizza would taste like. Would it be better than Chris' homemade Texas pizza or would we be disappointed? We were excited to find out. 
+
+# Preparation
+
+## Planning 
+The trip was planned several months beforehand using a planning app called [Wanderlog](https://wanderlog.com/). This app has several free features that makes planning a trip very straightforward, including the ability to easily incorporate restaurants from Google Maps into an accessible list. Prior to our trip, we had extensively researched the "best" pizzerias according the internet, and created a list of about thirty different places, organized by neighborhood. In addition, we made a list of pizzerias, as well as their opening and closing times. As you can see in the below image, this pizzeria was added straight from Google, where I added the notes that *L'Antica Pizzeria da Michele* was a must visit place opening at 11 A.M.
+
+
+![An Example of Wanderlog Notes](wanderlogExample.png){width=80%}
+
+
+## Priority Pizzerias
+Since there are so many options and not much time, we selected our top five choices based on our internet research. My first choice was *L'Antica Pizzeria da Michele*, while Chris' first choice was *Pizzeria Concettina ai Tre Santi*. As Figure 2 shows, these top fives choices, indicated by the red fork and knife symbol, are not in close proximity to each other. Naples is a large metropolitan area, and while there is public transportation and taxis, we would discover later in our trip that carefully observing a map does not entirely explain the whole story when it comes to ease of mobility.
+
+1. Pizzeria La Notizia 53
+1. 50 Kalò
+1. Pizzeria Da Attilio
+1. L'Antica Pizzeria da Michele
+1. Pizzeria Concettina ai Tre Santi
+
+![Wanderlog Map of Curated Pizzerias](wanderlogPizzerias.png){width=95%}
+
+## Personal Restraints
+
+We both agreed that other than snacks that are specific to the region, our only meals would be margherita pizza so that we didn't waste any precious stomach space. A local specialty we would not be passing up is *frittatine*, which are balls of deep fried pasta mixed with peas and pork pieces. Another local delicacy is a deep fried folded pizza called *pizza fritta*.
+
+Before arriving, we were undecided if we would both order our own pizza or share so that we could sample many different places without overeating. It was hard to tell the size of the pizza or how filling it would be by only looking at the pictures we had seen on the internet. In Naples, it is common for each person to order their own pizza since the crust is fairly thin and the diameter is not as large as American sized pizzas. However, a typical Neapolitan citizen is eating only one pizza for lunch or dinner, not at 30 different places in four days! We decided to wait until we arrived to decide on our ordering strategy.
+
+![An exception - Frittatine, a deep fried pasta mixed with peas and pork](frittatine.jpeg){width=50%}
+
+## Evaluation Criteria
+
+We created method for evaluating each pizzeria so that once we came home we could evaluate which place was our favorite. The evaluation is based on three separate components of a pizza that we felt are the most important:
+
+- Sauce
+  - Perfectly salted
+  - Balance of sweet and rich
+  - Not too soupy, but not dry
+  - A drizzle of olive oil, but not drenched
+
+- Cheese
+  - Chewy, but not too chewy
+  - Must not overwhelm the sauce
+
+- Crust
+  - Balance of chewy and crunchy
+  - Nicely charred on the bottom, but not burnt
+
+### Price Penalty  
+
+According to Naples resident blogger Pizza Dixit, the average cost for a Neapolitan pizza in Naples in April of 2021 is 5€ [@pizzaDixit]. Therefore, we assigned a penalty or reward based on whether or not the pizza price was above or below this amount. Table 1 summarizes the factor applied to the score.
+
+Table: Price Factor Determination
+
+Cost  | Price Factor
+------------- | -------------
+Less than 5€ | -1
+Exactly 5€  | 0
+Greater than 5€  | 1
+
+### Overall Scoring
+
+The overall score is determined based on the average of the sauce, cheese and crust categories, with the price factor added after averaging. We made sure to score as soon as we finished eating to avoid forgetting the flavor or textures.
+
+The formula for calculating the final scores can be summarized as follows:
+
+$$\text{Final Score} = \frac{\text{Sauce} + \text{Cheese} + \text{Dough}}{3} + \text{Price Factor}$$
+
+# Results
+
+Much to our disappointment, eating at thirty different restaurants in four days is not very feasible. No matter how much you want to continue eating, your stomach eventually stops you from continuing. One of the first pizzerias we visited, we got overly excited and ordered two pizzas. This was a big mistake because eating the whole pizza alone left us full and incapable of going to another place to try another pizza. We decided from there forward we would only share one pizza.
+
+By the end of our trip, we ate at ten different pizzerias. Chris could have kept eating the same margherita pizza for many more meals, but I was becoming tired of the same flavors and textures for lunch and dinner. Eating pizza became a boring chore, which was something I never thought I'd say prior to this experiment. 
+
+The timeline below shows a look at just how frequently we were eating pizza. On June 1^st^, our first full day in the city, we ate at four different places, taking up nearly the entire afternoon. On June 2^nd^ we only ate at one pizzeria because we went on a long day trip to the Amalfi coast, which consumed much of the day. 
+
+```{r timeline, out.width = '85%', fig.align = 'center'}
+
+pizza <- read.csv('pizzaRanking.csv', header = TRUE)
+
+colnames(pizza)[c(1:2,6:8)] <- c("Pizzeria Name", "Cost (Euros)", "Pizza Score", "Price Penalty", "Final Score")
+
+pizza <- pizza[order(pizza$`Final Score`, decreasing = TRUE), ]
+
+data <- data.frame(event = pizza$`Final Score`, start = c("2023-06-01 11:30:00","2023-06-01 19:30:00","2023-05-31 14:30:00", "2023-06-01 13:30:00","2023-06-01 21:30:00","2023-06-03 11:30:00","2023-05-31 15:30:00","2023-06-02 21:30:00","2023-06-03 15:30:00","2023-05-31 17:00:00"), color = c("tomato","tomato","wheat3","tomato","tomato","springgreen4","wheat3","lightgoldenrod","springgreen4","wheat3"))
+
+gg_vistime(data, title = "Plot 1: Timeline of Pizzeria Visits", show_labels = FALSE) + 
+  scale_x_datetime(date_breaks = "4 hours", labels = function(x) strftime(x, format = "%m/%d %H:%M")) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8), panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank())
+
+```
+
+## Final Scores
+
+As shown in the Table 2 below, our favorite place was *Antica Pizzeria dell'angelo*. *Starita* would have been the top choice if it wasn't for the price penalty. The average score for the places we went was a 7.9, not bad!  
+
+```{r scores}
+
+pizzaSelect <- pizza[,c(1,3:6,8)]
+
+avg <- mean(pizzaSelect$`Pizza Score`)
+
+kbl(pizzaSelect, align = "c", row.names = FALSE, caption = "Visited Pizzeria Scores") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), 
+                position = "center", font_size = 14, latex_options = c("scale_down", "center", "hold_position")) %>%
+  column_spec(2:3, width = "3cm")
+
+```
+
+# Lessons Learned
+
+When looking back at our scores, the results were surprising. Many spots that bloggers or reviewers on the internet swore were the most amazing pizzas just didn't make the cut for us. For example, the pizzeria I have seen most on travel and food blogs and my top choice when beginning this experiment was *L'Antica Pizzeria da Michele*. This was the second place we visited, and although it was better than most pizzas I have eaten in the United States, it didn't live up to my expectations. However, places that I had never heard of on any blog or Google search ended being my personal favorites. Chris shared the same opinion, as his top choice, *Pizzeria Concettina ai Tre Santi* was his least favorite. 
+
+No matter how much research is done before traveling, it seems there is always something that is misinterpreted, unforeseen, or just plain wrong when the plan is finally executed. Below outlines some of the obstacles that we faced once we got to Naples.
+
+## Unusual Business Hours
+
+Many places in Naples close for a few hours during the day, typically between the hours of 3 P.M. to 7 P.M. This limited our eating time to either lunch or dinner but nothing in between, so rather than grazing on pizza all day we would have to take long breaks. This resulted in a lot of pizzerias missed because some of the sites we saw around the city were close to pizzerias that we wanted to visit, but because we were nearby outside of business hours we ended up missing them.
+
+## Long Lines
+
+My first choice in pizzerias to visit, *L'Antica Pizzeria da Michele*, is extremely popular with tourists and has over [32,000 Google reviews](https://www.google.com/search?q=l%27antica+pizzeria+da+michele+naples)! I had assumed that we would be spending some time waiting in line here, but I didn't realize the extent of how long it would actually take to get a table. When we arrived at 4PM, an unusual time for eating in Naples, there was a line down the street. We waited for about 90 minutes to be seated, and although it was a very good pizza, the waiting took up a lot of time that we could have spent doing other activities or visiting other restaurants. 
+
+![Waiting in line at L'Antica Pizzeria da Michele](lantica.jpeg){width=80%}
+
+## Logistical Issues
+
+As mentioned before, Naples is a huge city. There are two metro lines, and although they stop and many of the typical tourist areas, a few of the pizzerias on our list were located in areas that the metro line doesn't go through. Because of this, we missed out on two of our top choice locations. Below shows navigation options to one of our top spots, *50 Kalo*. Reaching this place would take, at a minimum, at least two different methods of public transportation. In hindsight, we could have taken a taxi, but we had too many other activities planned that we decided to abandon these top spots in pursuit of places on our list that were closer to our AirBnB.  
+
+![Transportation Options for 50 Kalo, One of Our Top Choices^[Directions were calculated using Google Maps at approx 8:30 PM Naples time]](50Kalo.png)
+
+# Final Opinion
+
+By the time we arrived back in Houston, Chris and I debriefed on whether the pizza of Naples was everything we thought it would be. We both agreed that yes, some of the pizzas we ate were the best we have ever had in our lives, and we have eaten a lot of pizza. The second question we discussed was whether or not Chris' homemade pizza compared to those we tasted on our trip. I was confident that Chris' pizza was just as good, if not better, than the authentic Neapolitan pizzas made every day by professional *Pizzaiolos* in Naples. Chris did not agree, but he is his own worst critic! Overall, we had an amazing time enjoying the food, culture, and history of Naples and would recommend everyone to visit for an authentic Italian experience.
+
+\newpage
+# References
